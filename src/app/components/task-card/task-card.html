@@ -1,0 +1,17 @@
+<div class="task-card">
+  <h2>{{ title() }}</h2>
+  <p>{{ description() }}</p>
+  
+  <div class="task-meta">
+    <span class="status" [class.em-progresso]="status() === 'Em progresso'" [class.concluido]="status() === 'Concluido'" [class.pendente]="status() === 'Pendente'">
+      {{ status() }}
+    </span>
+    <span class="priority" [class.high]="priority() >= 3" [class.medium]="priority() === 2" [class.low]="priority() <= 1">
+      P{{ priority() }}
+    </span>
+  </div>
+  
+  <button (click)="onStatusChange()">
+    {{ status() === 'Em progresso' ? 'Concluir' : 'Reabrir' }}
+  </button>
+</div>

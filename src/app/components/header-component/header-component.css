@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #888;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:first-child {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+
+nav a:hover {
+  color: #fff;
+}
