@@ -1,14 +1,26 @@
-<h1 class="page-title">Minhas Tarefas</h1>
+<div class="page-container">
+  <div class="page-header">
+    <h1 class="page-title">Minhas Tarefas</h1>
+    <button class="btn-new-task" (click)="ModalOn()">+ Nova Tarefa</button>
+  </div>
 
-<div class="task-list">
-  @for (task of taskService.tasks(); track task.id) {
-    <app-task-card
-      [id]="task.id"
-      [title]="task.title"
-      [description]="task.description"
-      [status]="task.status"
-      [priority]="task.priority"
-      (statusOutput)="taskService.ButtonHandle($event)"
-    ></app-task-card>
-  }
+  <div class="task-list">
+    @for (task of taskService.tasks(); track task.id) {
+      <app-task-card
+        [id]="task.id"
+        [title]="task.title"
+        [description]="task.description"
+        [status]="task.status"
+        [priority]="task.priority"
+        (statusOutput)="taskService.ButtonHandle($event)"
+      ></app-task-card>
+    }
+  </div>
 </div>
+
+@if (showModal()) {
+  <app-task-form
+    (taskFormOutput)="onTaskCreated($event)"
+    (cancelOutput)="ModalOff()"
+  ></app-task-form>
+}

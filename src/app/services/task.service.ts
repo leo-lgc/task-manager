@@ -5,36 +5,11 @@ import { Task, TaskStatusChange } from '../interfaces/task.interface';
   providedIn: 'root',
 })
 export class TaskService {
-  tasks = signal<Task[]>([
-    {
-      id: 1,
-      title: 'Task Exemplo',
-      description: 'Essa é uma task simples que eu criei para testar o sistema.',
-      status: 'Em progresso',
-      priority: 3,
-    },
-    {
-      id: 2,
-      title: 'Revisar documentação',
-      description: 'Verificar se toda documentação está atualizada.',
-      status: 'Pendente',
-      priority: 2,
-    },
-    {
-      id: 3,
-      title: 'Implementar autenticação',
-      description: 'Adicionar autenticação de usuários ao sistema.',
-      status: 'Em progresso',
-      priority: 3,
-    },
-    {
-      id: 4,
-      title: 'Testar funcionalidades',
-      description: 'Executar testes nas funcionalidades principais.',
-      status: 'Concluído',
-      priority: 1,
-    },
-  ]);
+  tasks = signal<Task[]>([]);
+
+  FormHandle(task: Task) {
+    return this.tasks.update((tasks) => [...tasks, task]);
+  }
 
   ButtonHandle({ id, status }: TaskStatusChange) {
     const taskArray = this.tasks().map((task) => {

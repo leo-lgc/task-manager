@@ -1,8 +1,59 @@
+:host {
+  display: block;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.btn-new-task {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.25rem;
+  border: 1px dashed #2a2a2a;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-new-task:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
 .task-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  .page-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

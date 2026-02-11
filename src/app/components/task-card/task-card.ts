@@ -11,7 +11,7 @@ export class TaskCard {
   id = input.required<number>();
   title = input.required<string>();
   description = input<string>('Sem descrição');
-  status = input.required<string>();
+  status = input<string>('Em progresso');
   priority = input.required<number>();
 
   statusOutput = output<TaskStatusChange>();
